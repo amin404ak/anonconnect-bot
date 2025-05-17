@@ -208,6 +208,18 @@ if __name__ == '__main__':
         filters.TEXT | filters.PHOTO | filters.VIDEO | filters.VOICE,
         handle_message
     ))
+async def link(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+    user_id = user.id
 
+    link = f"https://t.me/{context.bot.username}?start=UID_{user_id}"
+
+    await update.message.reply_text(
+        f"🔗 لینک ناشناس شما:\n\n{link}\n\n"
+        "این لینک رو برای دوستات بفرست تا بتونن بهت پیام ناشناس بدن ✉️"
+    )
+
+app.add_handler(CommandHandler("link", link))
+ 
     logger.info("✅ ربات فعال شد!")
     app.run_polling()
