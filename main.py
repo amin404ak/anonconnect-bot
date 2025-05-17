@@ -1,3 +1,15 @@
+from flask import Flask
+import threading
+
+flask_app = Flask(__name__)
+
+@flask_app.route('/')
+def home():
+    return "✅ ربات فعال است."
+
+def run_web():
+    flask_app.run(host="0.0.0.0", port=10000)
+
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -180,4 +192,5 @@ if __name__ == '__main__':
         handle_message
     ))
     logger.info("✅ ربات فعال شد!")
+    threading.Thread(target=run_web).start()
     app.run_polling()
