@@ -150,7 +150,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if update.message.text:
             await context.bot.send_message(
                 chat_id=original_sender_id,
-                text=f"💌 پاسخ ناشناس:\n\n{update.message.text}"
+                text=f"💌 پاسخ ناشناس (میتونی جواب بدی یا پایان مکالمه رو بزنی):\n\n{update.message.text}"
             )
             await update.message.reply_text("✅ پاسخ شما ارسال شد.")
 
