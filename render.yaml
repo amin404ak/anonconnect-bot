@@ -1,7 +1,6 @@
 services:
-  - type: web
-    name: anonconnect-bot
+  - type: worker
+    name: anonconnect-worker
     env: python
     plan: free
-    buildCommand: ""
     startCommand: python main.py
